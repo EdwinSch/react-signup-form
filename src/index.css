@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ps_red: hsl(0, 100%, 74%);
+  --ps_green: hsl(154, 59%, 51%);
+  --ps_purple: hsl(248, 32%, 49%);
+  --ps_textDark: hsl(249, 10%, 26%);
+  --ps_white: whitesmoke;
+  --inspect: solid blue 1px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-image: url(./assets/bg-intro-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 122, 122, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  width: 1110px;
+  height: 558px;
+  border: var(--inspect);
+}
+section {
+  width: 50%;
+  height: 100%;
+}
+.advertisement-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.advertisement-wrapper p {
+  color: var(--ps_white);
+  font-size: 16px;
+  font-weight: 500;
+}
+h1 {
+  font-size: 50px;
+  color: var(--ps_white);
+  line-height: 50px;
+  margin-bottom: 30px;
+}
