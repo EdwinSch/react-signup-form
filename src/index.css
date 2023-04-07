@@ -81,6 +81,7 @@ form {
   background: white;
   border-radius: 10px;
   padding: 40px;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
 }
 form button {
   margin-bottom: 8px;
@@ -124,8 +125,13 @@ input {
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
+  color: var(--ps_textDark);
   outline: none;
 }
 input:focus {
   border: solid 1px #5e54a4;
+}
+input::placeholder {
+  text-transform: capitalize;
+  color: var(--ps_textDark);
 }
