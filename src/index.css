@@ -13,6 +13,7 @@
   --inspect: solid blue 1px;
 }
 
+/* Main */
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
@@ -27,26 +28,48 @@ body {
 }
 main {
   width: 1110px;
-  height: 558px;
+  height: 646px;
+  display: flex;
   border: var(--inspect);
 }
 section {
   width: 50%;
   height: 100%;
-}
-.advertisement-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* Advertisement */
 .advertisement-wrapper p {
   color: var(--ps_white);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 }
 h1 {
-  font-size: 50px;
+  font-size: 3rem;
   color: var(--ps_white);
   line-height: 50px;
   margin-bottom: 30px;
+}
+
+/* Form */
+
+/* Banner */
+.banner {
+  background: var(--ps_purple);
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+.banner p {
+  font-size: 0.95rem;
+  color: white;
+  font-weight: 700;
+}
+.banner p span {
+  font-weight: 400;
 }
