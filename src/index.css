@@ -31,7 +31,6 @@ main {
   width: 1110px;
   height: 646px;
   display: flex;
-  border: var(--inspect);
 }
 section {
   width: 50%;
@@ -66,6 +65,7 @@ h1 {
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 .banner p {
   font-size: 0.95rem;
@@ -134,4 +134,45 @@ input:focus {
 input::placeholder {
   text-transform: capitalize;
   color: var(--ps_textDark);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media screen and (max-width: 1110px) {
+  body {
+    align-items: start;
+  }
+  main {
+    margin: 80px 24px;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  section {
+    width: 100%;
+  }
+  h1 {
+    text-align: center;
+  }
+  .advertisement-wrapper p {
+    margin-bottom: 64px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-image: url(./assets/bg-intro-mobile.png);
+  }
+  h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .banner {
+    height: 88px;
+    padding: 20px;
+  }
+  form {
+    padding: 24px;
+  }
 }

@@ -12,8 +12,12 @@ const Form = () => {
     newMember.email = event.target[2].value;
     newMember.password = event.target[3].value;
     console.log(newMember);
+    //clear inputs
+    for (let i = 0; i < 4; i++) {
+      event.target[i].value = "";
+    }
   };
-
+  // return
   return (
     <section className="form-wrapper">
       <Banner />
