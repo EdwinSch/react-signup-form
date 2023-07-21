@@ -64,16 +64,24 @@ const Form = () => {
     <section className="form-wrapper">
       <Banner />
       <form onSubmit={handleSubmit} noValidate>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="first name"
-          value={member.firstName}
-          onChange={handleChange}
-          className={
-            firstNameValidation ? "input-field" : "input-field false-validation"
-          }
-        />
+        <div className="input-wrapper">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="first name"
+            value={member.firstName}
+            onChange={handleChange}
+            className={
+              firstNameValidation
+                ? "input-field"
+                : "input-field false-validation"
+            }
+          />
+          {firstNameValidation || (
+            <p className="error">First Name can not be empty</p>
+          )}
+        </div>
+
         <input
           type="text"
           name="lastName"
