@@ -117,7 +117,7 @@ form p span {
 }
 
 /* Inputs */
-input {
+.input-field {
   margin-bottom: 20px;
   width: 100%;
   padding: 15px 30px;
@@ -129,12 +129,16 @@ input {
   color: var(--ps_textDark);
   outline: none;
 }
-input:focus {
+.input-field:focus {
   border: solid 1px #5e54a4;
 }
-input::placeholder {
+.input-field::placeholder {
   text-transform: capitalize;
   color: var(--ps_textPlaceholder);
+}
+
+.false-validation {
+  border: solid 1px var(--ps_red);
 }
 
 /* --- MOBILE RESPONSIVE --- */

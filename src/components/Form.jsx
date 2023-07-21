@@ -4,7 +4,11 @@ import Banner from "./Banner";
 import { nanoid } from "nanoid";
 
 const Form = () => {
-  const [validation, setValidation] = useState(true);
+  const [firstNameValidation, setFirstNameValidation] = useState(true);
+  const [lastNameValidation, setLastNameValidation] = useState(true);
+  const [passwordValidation, setPasswordValidation] = useState(true);
+  const [emailValidation, setEmailValidation] = useState(true);
+
   const [member, setMember] = useState({
     id: nanoid(),
     firstName: "",
@@ -23,16 +27,28 @@ const Form = () => {
   // on Submit
   const handleSubmit = (event) => {
     event.preventDefault();
+
     // Validate Inputs
-    if (!member.firstName || !member.lastName || !member.password) {
-      console.log("you shall not pass");
+    if (!member.firstName) {
+      console.log("first check");
+      setFirstNameValidation(false);
       return;
     }
-
-    // if (!member.password.includes("@")) {
-    //   console.log("negative");
-    //   return;
-    // }
+    if (!member.lastName) {
+      console.log("last check");
+      setLastNameValidation(false);
+      return;
+    }
+    if (!member.email.includes("@")) {
+      setEmailValidation(false);
+      console.log("email check");
+      return;
+    }
+    if (!member.password) {
+      console.log("pass check");
+      setPasswordValidation(false);
+      return;
+    }
 
     // console.log(member);
     //Reset Form
@@ -54,6 +70,9 @@ const Form = () => {
           placeholder="first name"
           value={member.firstName}
           onChange={handleChange}
+          className={
+            firstNameValidation ? "input-field" : "input-field false-validation"
+          }
         />
         <input
           type="text"
@@ -61,6 +80,9 @@ const Form = () => {
           placeholder="last name"
           value={member.lastName}
           onChange={handleChange}
+          className={
+            lastNameValidation ? "input-field" : "input-field false-validation"
+          }
         />
         <input
           type="email"
@@ -68,6 +90,9 @@ const Form = () => {
           placeholder="email address"
           value={member.email}
           onChange={handleChange}
+          className={
+            emailValidation ? "input-field" : "input-field false-validation"
+          }
         />
         <input
           type="password"
@@ -75,6 +100,9 @@ const Form = () => {
           placeholder="password"
           value={member.password}
           onChange={handleChange}
+          className={
+            passwordValidation ? "input-field" : "input-field false-validation"
+          }
         />
 
         <button type="submit">claim your free trial</button>
