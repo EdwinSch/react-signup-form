@@ -1,31 +1,81 @@
+import { useState } from "react";
 import Banner from "./Banner";
-import Input from "./Input";
+
+import { nanoid } from "nanoid";
 
 const Form = () => {
-  // on submit
+  const [validation, setValidation] = useState(true);
+  const [member, setMember] = useState({
+    id: nanoid(),
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  // on Change
+  const handleChange = (event) => {
+    // console.log(event.target.name);
+    // console.log(event.target.value);
+    setMember({ ...member, [event.target.name]: event.target.value });
+  };
+
+  // on Submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    // get person
-    const newMember = new Object();
-    newMember.firstName = event.target[0].value.toLowerCase();
-    newMember.lastName = event.target[1].value.toLowerCase();
-    newMember.email = event.target[2].value;
-    newMember.password = event.target[3].value;
-    console.log(newMember);
-    //clear inputs
-    for (let i = 0; i < 4; i++) {
-      event.target[i].value = "";
+    // Validate Inputs
+    if (!member.firstName || !member.lastName || !member.password) {
+      console.log("you shall not pass");
+      return;
     }
+
+    // if (!member.password.includes("@")) {
+    //   console.log("negative");
+    //   return;
+    // }
+
+    // console.log(member);
+    //Reset Form
+    setMember({
+      id: nanoid(),
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
   };
-  // return
   return (
     <section className="form-wrapper">
       <Banner />
-      <form onSubmit={handleSubmit}>
-        <Input type={"text"} name={"firstname"} placeholder={"first name"} />
-        <Input type={"text"} name={"lastname"} placeholder={"last name"} />
-        <Input type={"email"} name={"email"} placeholder={"email address"} />
-        <Input type={"password"} name={"password"} placeholder={"password"} />
+      <form onSubmit={handleSubmit} noValidate>
+        <input
+          type="text"
+          name="firstName"
+          placeholder="first name"
+          value={member.firstName}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="last name"
+          value={member.lastName}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="email address"
+          value={member.email}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          value={member.password}
+          onChange={handleChange}
+        />
 
         <button type="submit">claim your free trial</button>
         <p>
