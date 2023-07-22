@@ -160,6 +160,7 @@ form p span {
   main {
     margin: 80px 24px;
     width: auto;
+    max-width: 550px;
     height: auto;
     flex-direction: column;
     align-items: center;

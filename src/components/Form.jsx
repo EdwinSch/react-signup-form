@@ -30,27 +30,23 @@ const Form = () => {
 
     // Validate Inputs
     if (!member.firstName) {
-      console.log("first check");
       setFirstNameValidation(false);
       return;
     }
     if (!member.lastName) {
-      console.log("last check");
       setLastNameValidation(false);
       return;
     }
     if (!member.email.includes("@")) {
       setEmailValidation(false);
-      console.log("email check");
       return;
     }
     if (!member.password) {
-      console.log("pass check");
       setPasswordValidation(false);
       return;
     }
 
-    // console.log(member);
+    console.log(member);
     //Reset Form
     setMember({
       id: nanoid(),
@@ -59,7 +55,13 @@ const Form = () => {
       email: "",
       password: "",
     });
+    // reset states
+    setFirstNameValidation(true);
+    setLastNameValidation(true);
+    setEmailValidation(true);
+    setPasswordValidation(true);
   };
+
   return (
     <section className="form-wrapper">
       <Banner />
@@ -82,36 +84,57 @@ const Form = () => {
           )}
         </div>
 
-        <input
-          type="text"
-          name="lastName"
-          placeholder="last name"
-          value={member.lastName}
-          onChange={handleChange}
-          className={
-            lastNameValidation ? "input-field" : "input-field false-validation"
-          }
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="email address"
-          value={member.email}
-          onChange={handleChange}
-          className={
-            emailValidation ? "input-field" : "input-field false-validation"
-          }
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          value={member.password}
-          onChange={handleChange}
-          className={
-            passwordValidation ? "input-field" : "input-field false-validation"
-          }
-        />
+        <div className="input-wrapper">
+          <input
+            type="text"
+            name="lastName"
+            placeholder="last name"
+            value={member.lastName}
+            onChange={handleChange}
+            className={
+              lastNameValidation
+                ? "input-field"
+                : "input-field false-validation"
+            }
+          />
+          {lastNameValidation || (
+            <p className="error">Last Name can not be empty</p>
+          )}
+        </div>
+
+        <div className="input-wrapper">
+          <input
+            type="email"
+            name="email"
+            placeholder="email address"
+            value={member.email}
+            onChange={handleChange}
+            className={
+              emailValidation ? "input-field" : "input-field false-validation"
+            }
+          />
+          {emailValidation || (
+            <p className="error">Looks like this is not an email address</p>
+          )}
+        </div>
+
+        <div className="input-wrapper">
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={member.password}
+            onChange={handleChange}
+            className={
+              passwordValidation
+                ? "input-field"
+                : "input-field false-validation"
+            }
+          />
+          {passwordValidation || (
+            <p className="error">Password cannot be empty</p>
+          )}
+        </div>
 
         <button type="submit">claim your free trial</button>
         <p>
